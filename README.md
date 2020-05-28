@@ -7,7 +7,7 @@ Haoji Hu, Xiangnan He, Jinyang Gao, Zhi-Li Zhang (2020). Modeling Personalized I
 **Please cite our paper if you use our codes and datasets. Thanks!** 
 ```
 @inproceedings{hu2020TIFUKNN,
-  title={Modeling Personalized Item Frequency Information forNext-basket Recommendation},
+  title={Modeling Personalized Item Frequency Information for Next-basket Recommendation},
   author={Hu, Haoji and He, Xiangnan and Gao, Jinyang and Zhang, Zhi-Li},
   booktitle={Proceedings of the 43th International ACM SIGIR Conference on Research and Development in Information Retrieval},
   year={2020},
