@@ -2,7 +2,7 @@
 
 This is our implementation for the paper: 
 
-Haoji Hu, Xiangnan He, Jinyang Gao, Zhi-Li Zhang (2020). Modeling Personalized Item Frequency Information for Next-basket Recommendation. In the 43th International ACM SIGIR Conference on Research and Development in Information Retrieval.
+Haoji Hu, Xiangnan He, Jinyang Gao, Zhi-Li Zhang (2020). [Modeling Personalized Item Frequency Information for Next-basket Recommendation.](https://arxiv.org/pdf/2006.00556.pdf) In the 43th International ACM SIGIR Conference on Research and Development in Information Retrieval.
 
 **Please cite our paper if you use our codes and datasets. Thanks!** 
 ```
