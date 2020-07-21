@@ -20,4 +20,11 @@ Author: Haoji Hu
 ## Environment Settings
 - Python version: '3.6.8'
 
-Under construction...
+## A quick start to run the codes with Ta-Feng data set.
+
+
+```
+python TIFUKNN.py ./data/TaFang_history_NB.csv ./data/TaFang_future_NB.csv 300 0.9 0.7 0.7 7 10
+```
+
+TaFang_history_NB.csv contains the historical records of customers. TaFang_future_NB.csv contains the future records of customers. The 300 is the number neighbors. 0.9 is the time-decayed ratio within each group. The first 0.7 is the time-decayed ratio accross groups. The second 0.7 is the alpha for combining two parts in prediction. 7 is the group size. 10 is the top k items recommened.
