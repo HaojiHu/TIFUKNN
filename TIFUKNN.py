@@ -694,36 +694,14 @@ def evaluate(data_chunk,  training_key_set, test_key_set, input_size, group_size
 
 def main(argv):
 
-    # files = ['VS_history_order.csv', 'VS_future_order.csv']
-    # files = ['BA_history_order_8kitem.csv', 'BA_future_order_8kitem.csv']
-    # files = ['Dunnhumby_history_order_10_steps_50kuser.csv', 'Dunnhumby_future_order_10_steps_50kuser.csv']
-    # files = ['Tmall_history_NB.csv', 'Tmall_future_NB.csv']
-    # files = ['TaFang_history_NB.csv', 'TaFang_future_NB.csv']
+
     files = [argv[1], argv[2]]
 
     data_chunk, input_size, code_freq_at_first_claim = read_claim2vector_embedding_file_no_vector(files)
-    # codes_freq = Find_Top_K.get_codes_frequency_no_vector(data_chunk[training_chunk], input_size, data_chunk[test_chunk].keys())
-    # # doc_freq = np.zeros(input_size)
-    # IDF = Find_Top_K.get_codes_IDF(data_chunk[training_chunk], input_size, data_chunk[test_chunk].keys())
+
 
     training_key_set, validation_key_set, test_key_set = partition_the_data_validate(data_chunk, list(data_chunk[test_chunk]), 1)
 
-    ## Ta-Feng
-    ## num_neighbors: 300, within_decay_rate = 0.9,
-    # group_decay_rate: 0.5, alpha: 0.7, group_size, 6
-
-    ## VS
-    ## num_neighbors: 300, within_decay_rate = 0.9,
-    # group_decay_rate: 0.5, alpha: 0.7, group_size, 6
-
-
-    ## BA
-    ## num_neighbors: 900, within_decay_rate: 0.8,
-    # group_decay_rate: 0.4, alpha: 0.9, group_size: 3
-
-    ## Dunnhumby
-    ## num_neighbors: 900, within_decay_rate: 0.8,
-    # group_decay_rate: 0.6, alpha: 0.2, group_size: 3
 
     num_nearest_neighbors = int(argv[3])
     within_decay_rate = float(argv[4])
@@ -732,12 +710,7 @@ def main(argv):
     group_size = int(argv[7])
     topk = int(argv[8])
 
-    # num_nearest_neighbors = 300
-    # within_decay_rate = 0.9
-    # group_decay_rate = 0.7
-    # alpha = 0.7
-    # group_size = 7
-    # topk = 10
+
 
 
     print('Num. of top: ', topk)
