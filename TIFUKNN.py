@@ -7,12 +7,9 @@ import csv
 
 activate_codes_num = -1
 next_k_step = 1
-num_nearest_neighbors = 2
-removing_top_3_codes = 1
 training_chunk = 0
 test_chunk = 1
 
-weight = 10
 
 
 
@@ -595,21 +592,11 @@ def evaluate(data_chunk,  training_key_set, test_key_set, input_size, group_size
     index, distance = KNN(temporal_decay_sum_history_test, temporal_decay_sum_history_training,
                           num_nearest_neighbors)
 
-    training_sum_history_test = temporal_decay_add_history(data_chunk[training_chunk],
-                                                           training_key_set, input_size,
-                                                           within_decay_rate)
 
-    sum_history_test = temporal_decay_add_history(data_chunk[training_chunk], test_key_set,
-                                                  input_size, within_decay_rate)
-
-
-    # alpha = 0.4
-    sum_history = merge_history(sum_history_test, test_key_set, training_sum_history_test,
+    sum_history = merge_history(temporal_decay_sum_history_test, test_key_set, temporal_decay_sum_history_training,
                                 training_key_set, index, alpha)
 
-    # sum_history = merge_history_and_neighbors_future(data_chunk[test_chunk], sum_history_test, test_key_set, training_sum_history_test,
-    #                             training_key_set, index, alpha, beta)
-    # sum_history = sum_history_test
+
     if activate_codes_num < 0:
         # for i in range(1, 6):
 
@@ -699,8 +686,8 @@ def main(argv):
 
     data_chunk, input_size, code_freq_at_first_claim = read_claim2vector_embedding_file_no_vector(files)
 
-
     training_key_set, validation_key_set, test_key_set = partition_the_data_validate(data_chunk, list(data_chunk[test_chunk]), 1)
+
 
 
     num_nearest_neighbors = int(argv[3])
@@ -710,7 +697,12 @@ def main(argv):
     group_size = int(argv[7])
     topk = int(argv[8])
 
-
+    # num_nearest_neighbors = 300
+    # within_decay_rate = 0.9
+    # group_decay_rate = 0.7
+    # alpha = 0.7
+    # group_size = 7
+    # topk = 10
 
 
     print('Num. of top: ', topk)
