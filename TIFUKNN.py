@@ -276,7 +276,7 @@ def predict_with_elements_in_input(sum_history,key):
 
 
 def generate_dictionary_BA(files, attributes_list):
-    path = '../Minnemudac/'
+    # path = '../Minnemudac/'
     #files = ['Coborn_history_order.csv','Coborn_future_order.csv']
     #files = ['BA_history_order.csv', 'BA_future_order.csv']
     #attributes_list = ['MATERIAL_NUMBER']
@@ -290,7 +290,7 @@ def generate_dictionary_BA(files, attributes_list):
     csv.field_size_limit(sys.maxsize)
     for filename in files:
         count = 0
-        with open(path + filename, 'r') as csvfile:
+        with open(filename, 'r') as csvfile:
             reader = csv.reader(csvfile, delimiter=',', quotechar='|')
             for row in reader:
                 if count == 0:
@@ -315,7 +315,7 @@ def generate_dictionary_BA(files, attributes_list):
 def read_claim2vector_embedding_file_no_vector(files):
     #attributes_list = ['DRG', 'PROVCAT ', 'RVNU_CD', 'DIAG', 'PROC']
     attributes_list = ['MATERIAL_NUMBER']
-    path = '../Minnemudac/'
+    # path = '../Minnemudac/'
     print('start dictionary generation...')
     dictionary_table, num_dim, counter_table = generate_dictionary_BA(files, attributes_list)
     print('finish dictionary generation*****')
@@ -338,7 +338,7 @@ def read_claim2vector_embedding_file_no_vector(files):
         count = 0
         data_chunk.append({})
         filename = files[file_id]
-        with open(path + filename, 'r') as csvfile:
+        with open(filename, 'r') as csvfile:
             #gap_within_one_year = np.zeros(365)
             reader = csv.DictReader(csvfile)
             last_pid_date = '*'
